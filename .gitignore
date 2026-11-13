@@ -1,0 +1,33 @@
+# 构建产物
+*.exe
+*.o
+*.obj
+*.pdb
+
+# 第三方专有库 (Oodle, 不可分发)
+oo2core.dll
+oo2core*.dll
+
+# 外部依赖 (通过 git clone 获取)
+cui_src/
+
+# 测试与调试产物
+__verify_tmp*.bin
+*.tmp
+ui.png
+icon_preview.png
+*.ppm
+
+# 用户游戏数据备份
+backup/
+testbed/
+
+# Python
+__pycache__/
+*.pyc
+
+# 编辑器
+.vs/
+.vscode/
+*.user
+*.suo
