@@ -30,7 +30,12 @@ Third-party notices:
 - stb (https://github.com/nothings/stb) — public domain, bundled with CUI
 
 Oodle (oo2core.dll) is proprietary software owned by Epic Games and is
-NOT included in or distributed with this project. Users must obtain it
-themselves from an official source.
+NOT part of this project. It is not covered by the MIT license above.
+
+The copy of oo2core.dll distributed with the Release archive is provided
+solely so the tool can read a user's own local game files. It is taken
+unmodified from the official LibGGPK3 release. The source repository does
+not contain this file. For any other use of Oodle, obtain a license from
+Epic Games / RAD Game Tools (https://www.radgametools.com/oodle.htm).
 
 This project is not affiliated with Grinding Gear Games.
