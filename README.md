@@ -11,7 +11,6 @@
 
 <img src="docs/screenshot.png" alt="POE_patch_CHT 界面截图" width="760">
 
-[简体中文](#简体中文) | [English](#english)
 
 ---
 
@@ -191,91 +190,3 @@ POE_patch_CHT/
 使用风险自负。修改前建议备份 `Bundles2\_.index.bin`。
 
 本项目与 Grinding Gear Games 无关。
-
----
-
-## English
-
-**Path of Exile Traditional Chinese language + custom font patcher**
-
-> ⚠️ **Version 1 supports the Steam version of Path of Exile only.**
-> It works with the `Bundles2` directory layout used by Steam
-> (`_.index.bin` + `*.bundle.bin`). The standalone client (`Content.ggpk`)
-> and Epic versions are **not yet supported**.
-
-<img src="docs/screenshot.png" alt="POE_patch_CHT interface" width="760">
-
-### What it does
-
-A native C GUI built with **[CUI](https://github.com/yappologistic/CUI)** that
-re-applies two modifications after a Path of Exile game update:
-
-1. **Traditional Chinese locale** — makes the in-game "Français" option display
-   Traditional Chinese
-2. **Custom font** — changes the Traditional Chinese UI font to a system font
-   of your choice
-
-### How it works
-
-The game reads `language=fr` from `production_Config.ini`, finds the
-`Data/Languages.dat` row whose `code` is `"fr"`, then loads `data/<lowercase name>/`
-using that row's **name** field.
-
-The patcher **swaps the `name` and `native` fields** of the `fr` and `zh-TW` rows,
-leaving `code` untouched. After that, choosing French loads the
-`data/traditional chinese/` data and the menu shows 「繁體中文」.
-
-This matches the output of the official
-[PoeChinese3](https://github.com/aianlinb/LibGGPK3/tree/main/Examples/PoeChinese3)
-tool byte-for-byte (verified against v2.7.5).
-
-### Requirements
-
-- Windows 7+
-- Steam version of Path of Exile
-
-### Usage
-
-1. Download `POE_patch_CHT_v*_win-x64.zip` from [Releases](../../releases)
-   (the archive **already contains `oo2core.dll`** — just unzip and run)
-2. Close the game
-3. Run `poe_patch.exe`
-4. Verify the index path, pick a font, click the apply button
-5. In game, select "Français" as the language
-
-### Building
-
-Requires MinGW-w64 (gcc + windres) and optionally Python for icon generation.
-
-```
-git clone https://github.com/yappologistic/CUI.git cui_src/CUI-master
-build.bat
-```
-
-### About oo2core.dll
-
-`oo2core.dll` is the runtime for **Oodle Data Compression**.
-
-- **Source**: the copy bundled in the Release archive is taken unmodified from
-  the official [LibGGPK3](https://github.com/aianlinb/LibGGPK3/releases) `win-x64.zip`.
-- **Licensing**: `oo2core.dll` is proprietary software of **Epic Games**
-  (Oodle Data Compression). It is **not part of this project** and is **not
-  covered by this project's MIT license**.
-- It is used only to read **your local game files**. This project does not
-  modify or redistribute it. The source repository (`src/`) does **not**
-  contain the file — the repo remains pure MIT; the library appears only as a
-  Release attachment.
-- For any other use of Oodle, obtain a proper license from
-  [Epic / RAD Game Tools](https://www.radgametools.com/oodle.htm).
-- Prefer to get it yourself? Take `oo2core.dll` from the LibGGPK3 release and
-  place it next to `poe_patch.exe`.
-
-### License
-
-Source code: MIT.
-Oodle (`oo2core.dll`) is proprietary (Epic Games) and is not part of the
-repository; it is included only in the Release archive.
-UI: [CUI](https://github.com/yappologistic/CUI) (MIT).
-Icons: Lucide (ISC), bundled with CUI.
-
-Not affiliated with Grinding Gear Games.
