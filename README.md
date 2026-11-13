@@ -9,6 +9,8 @@
 > 官方独立客户端（Content.ggpk）和 Epic 版本**尚未支持**，
 > 后续版本会考虑加入。
 
+<img src="docs/screenshot.png" alt="POE_patch_CHT 界面截图" width="760">
+
 [简体中文](#简体中文) | [English](#english)
 
 ---
@@ -55,29 +57,17 @@ PoE 的语言数据存放在 `Data/Languages.dat`，共 11 种语言，每行有
 
 ### 界面
 
-```
-┌─────────────────────────────────────────────────┐
-│ Path of Exile 繁中语系 + 字体                    │
-│                                                 │
-│ 游戏索引文件                                     │
-│ ┌─────────────────────────────────────────────┐ │
-│ │ D:\Games\Steam\...\Bundles2\_.index.bin     │ │
-│ │ [选择文件...] [重新检查]                     │ │
-│ └─────────────────────────────────────────────┘ │
-│                                                 │
-│ 字体                                             │
-│ [ HarmonyOS Sans TC          ▼ ]                │
-│                                                 │
-│ (语言已应用) (字体已应用)                        │
-│ fr    -> Traditional Chinese  (繁體中文)         │
-│ zh-TW -> French  (Français)                     │
-│                                                 │
-│ [修改字体] [修改语言到繁体中文] [应用全部修改]    │
-└─────────────────────────────────────────────────┘
-```
+界面分为三部分：
+
+| 区域 | 内容 |
+|---|---|
+| **顶部** | 游戏索引文件路径，可手动选择；右侧有「重新检查」 |
+| **中部** | 字体下拉菜单（只列出本机已安装的中文字体），下方显示当前状态徽章与语言行信息 |
+| **底部** | 三个操作按钮：修改字体 / 修改语言到繁体中文 / 应用全部修改 |
 
 - 顶部自动探测常见的 Steam 安装路径；找不到时点「选择文件...」手动定位 `_.index.bin`
 - 字体下拉菜单只列出**本机实际安装的**中文字体（通过 Win32 `CreateFont` + `GetTextFace` 检测）
+- 状态徽章会实时显示两项改动是否已应用（绿色 = 已应用）
 - 三项操作都是**幂等**的：已应用时会自动跳过，重复点击不会重复写入
 
 ### 使用方法
@@ -212,6 +202,8 @@ POE_patch_CHT/
 > It works with the `Bundles2` directory layout used by Steam
 > (`_.index.bin` + `*.bundle.bin`). The standalone client (`Content.ggpk`)
 > and Epic versions are **not yet supported**.
+
+<img src="docs/screenshot.png" alt="POE_patch_CHT interface" width="760">
 
 ### What it does
 
